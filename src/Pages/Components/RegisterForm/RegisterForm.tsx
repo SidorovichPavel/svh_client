@@ -50,44 +50,40 @@ const RegisterForm: React.FC = () => {
 
     return (
         <div className="register">
-            <header>
-            </header>
-            <div>
-                <h2 style={{ color: "red" }}>{context}</h2>
-                <b style={{ color: "red" }}>{error}</b>
-                <form onSubmit={handleRegister}>
-                    <div className='form-group'>
-                        <label>Имя:</label>
-                        <input type='text' id='first_name' value={first_name} onChange={e => setFirstName(e.target.value)} />
-                    </div>
-                    <div className='form-group'>
-                        <label>Фамилия:</label>
-                        <input type='text' id='last_name' value={last_name} onChange={e => setLastName(e.target.value)} />
-                    </div>
-                    <div className='form-group'>
-                        <label>Возраст:</label>
-                        <input style={{ width: '20%' }} type='number' id='age' value={age} onChange={e => setAge(Math.max(0, parseInt(e.target.value)))} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="username">Имя пользователя:</label>
-                        <input type="text" id="username" value={username} onChange={e => setUsername(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Пароль:</label>
-                        <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Повтор пароля:</label>
-                        <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
-                    </div>
-                    <div>
+            <h2 style={{ color: "red" }}>{context}</h2>
+            <b style={{ color: "red" }}>{error}</b>
+            <form onSubmit={handleRegister}>
+                <div className='form-group'>
+                    <label>Имя:</label>
+                    <input type='text' id='first_name' value={first_name} onChange={e => setFirstName(e.target.value)} />
+                </div>
+                <div className='form-group'>
+                    <label>Фамилия:</label>
+                    <input type='text' id='last_name' value={last_name} onChange={e => setLastName(e.target.value)} />
+                </div>
+                <div className='form-group'>
+                    <label>Возраст:</label>
+                    <input style={{ width: '20%' }} type='number' id='age' value={age} onChange={e => setAge(Math.max(0, parseInt(e.target.value)))} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="username">Имя пользователя:</label>
+                    <input type="text" id="username" value={username} onChange={e => setUsername(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Пароль:</label>
+                    <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Повтор пароля:</label>
+                    <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
+                </div>
+                <div>
 
-                    </div>
-                    <div className="form-group">
-                        <button type="submit">Войти</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div className="form-group">
+                    <button type="submit">Войти</button>
+                </div>
+            </form>
         </div>
     );
 };
