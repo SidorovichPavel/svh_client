@@ -1,0 +1,45 @@
+.Watch {
+    text-align: center;
+}
+
+.Watch-header {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+}
+
+.Main-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.Video-player {
+    flex: 60%;
+    width: auto;
+    height: 480px;
+    justify-content: center;
+    /* 70% ширины */
+}
+
+.Comments-list,
+.Users-list {
+    flex: 20%;
+    /* 15% ширины */
+}
+
+.Video-player,
+.Comments-list,
+.Users-list {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.Video-player h2,
+.Comments-list h2,
+.Users-list h2 {
+    margin: auto,
+}

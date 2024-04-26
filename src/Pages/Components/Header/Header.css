@@ -1,0 +1,36 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+  }
+  
+  .Header-brand h1 {
+    margin: 0;
+  }
+  
+  .Header-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .Header-button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .Header-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .Header-button:last-child {
+    margin-left: 20px;
+  }
+  
