@@ -16,6 +16,7 @@ interface LoginProps {
 }
 
 const Login: React.FC = () => {
+    const context = "Вход";
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<String>('');
@@ -51,7 +52,7 @@ const Login: React.FC = () => {
             <header>
             </header>
             <div>
-                <h2>Форма входа</h2>
+                <h2>{context}</h2>
                 <b>{error}</b>
                 <form onSubmit={handleLogin}>
                     <div className="form-group">

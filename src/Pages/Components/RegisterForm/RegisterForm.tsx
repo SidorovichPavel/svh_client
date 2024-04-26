@@ -12,6 +12,8 @@ function hash(data: string) {
 }
 
 const RegisterForm: React.FC = () => {
+    const context = "Регистрация";
+
     const [first_name, setFirstName] = useState<string>('');
     const [last_name, setLastName] = useState<string>('');
     const [age, setAge] = useState<number>(0);
@@ -51,7 +53,7 @@ const RegisterForm: React.FC = () => {
             <header>
             </header>
             <div>
-                <h2>Форма входа</h2>
+                <h2 style={{ color: "red" }}>{context}</h2>
                 <b style={{ color: "red" }}>{error}</b>
                 <form onSubmit={handleRegister}>
                     <div className='form-group'>
