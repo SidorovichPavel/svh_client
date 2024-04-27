@@ -26,7 +26,6 @@ const RegisterForm: React.FC = () => {
         e.preventDefault();
 
         const hashed_pass = hash(password);
-        console.log(hashed_pass);
 
         const json = JSON.stringify({
             username: username,
@@ -44,13 +43,13 @@ const RegisterForm: React.FC = () => {
             }
         } catch (error: any) {
             console.log(error);
-            setError('Auth failed');
+            setError('Ошибка регистрации');
         }
     };
 
     return (
         <div className="register">
-            <h2 style={{ color: "red" }}>{context}</h2>
+            <h2>{context}</h2>
             <b style={{ color: "red" }}>{error}</b>
             <form onSubmit={handleRegister}>
                 <div className='form-group'>

@@ -11,10 +11,6 @@ function hash(data: string) {
     return hash;
 }
 
-interface LoginProps {
-    onLogin: (username: string, password: string) => void;
-}
-
 const Login: React.FC = () => {
     const context = "Вход";
     const [username, setUsername] = useState<string>('');
@@ -25,7 +21,6 @@ const Login: React.FC = () => {
         e.preventDefault();
 
         const hashed_pass = hash(password);
-        console.log(hashed_pass);
 
         const json = JSON.stringify({
             username: username,
@@ -43,14 +38,14 @@ const Login: React.FC = () => {
             }
         } catch (error: any) {
             console.log(error);
-            setError('Auth failed');
+            setError('Ошибка входа');
         }
     };
 
     return (
         <div className="login-form">
             <h2>{context}</h2>
-            <b>{error}</b>
+            <b style={{ color: "red" }}>{error}</b>
             <form onSubmit={handleLogin}>
                 <div className="form-group">
                     <label htmlFor="username">Имя пользователя:</label>
