@@ -1,40 +1,40 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
 
-import { genSaltSync, hashSync } from 'bcryptjs'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function hash(data: string) {
-    const salt = genSaltSync();
-    const hash = hashSync(data, salt);
-    console.log(hash);
-    return hash;
+interface ILogin {
+
 }
 
-const Login: React.FC = () => {
+const Login: React.FC<ILogin> = ({ }) => {
     const context = "Вход";
-    const [username, setUsername] = useState<string>('');
+    const navigate = useNavigate();
+
+    const [nickname, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<String>('');
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const hashed_pass = hash(password);
-
         const json = JSON.stringify({
-            username: username,
-            hashed_password: hashed_pass,
+            nickname: nickname,
+            password_hash: btoa(password),
         });
-
+        debugger
         try {
-            const response = await axios.post<{ jwt: string }>('http://localhost:8080/api/login', json);
+            const response = await axios.post<{ token: string }>('http://localhost:8080/login', json);
 
-            if (response.status == 200) {
-                const jwt = response.data.jwt;
-                localStorage.setItem('jwt', jwt)
+            if (response.status === 200) {
                 setError('');
-                console.log(jwt);
+
+                const token = response.data.token;
+                localStorage.setItem('token', token)
+                console.log(token);
+
+                navigate('/');
             }
         } catch (error: any) {
             console.log(error);
@@ -52,7 +52,7 @@ const Login: React.FC = () => {
                     <input
                         type="text"
                         id="username"
-                        value={username}
+                        value={nickname}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>

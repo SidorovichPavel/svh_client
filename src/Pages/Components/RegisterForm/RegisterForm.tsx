@@ -1,45 +1,62 @@
 import React, { useState } from 'react';
 import './RegisterForm.css';
 
-import { genSaltSync, hashSync } from 'bcryptjs'
+import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 
-function hash(data: string) {
-    const salt = genSaltSync();
-    const hash = hashSync(data, salt);
-    console.log(hash);
-    return hash;
+interface IRegister {
+
 }
 
-const RegisterForm: React.FC = () => {
+const RegisterForm: React.FC<IRegister> = ({ }) => {
     const context = "Регистрация";
+    const navigate = useNavigate();
 
     const [first_name, setFirstName] = useState<string>('');
     const [last_name, setLastName] = useState<string>('');
     const [age, setAge] = useState<number>(0);
-    const [username, setUsername] = useState<string>('');
+    const [nickname, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [password_repeat, setPasswordRepeat] = useState<string>('');
 
     const [error, setError] = useState<String>('');
 
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const hashed_pass = hash(password);
+        if (first_name === "" ||
+            last_name === "" ||
+            nickname === "" ||
+            password === "") {
+            setError("Поля не могут быть пустым");
+            return;
+        }
+
+        if (password !== password_repeat) {
+            setError("Пароли не совпадают")
+            return;
+        }
 
         const json = JSON.stringify({
-            username: username,
-            hashed_password: hashed_pass,
+            first_name: first_name,
+            last_name: last_name,
+            age: age,
+            nickname: nickname,
+            password_hash: btoa(password)
         });
 
         try {
-            const response = await axios.post<{ jwt: string }>('http://localhost:8080/api/Register', json);
+            const response = await axios.post<{ token: string }>('http://localhost:8080/register', json);
 
-            if (response.status == 200) {
-                const jwt = response.data.jwt;
-                localStorage.setItem('jwt', jwt)
+            if (response.status === 200) {
                 setError('');
-                console.log(jwt);
+
+                const token = response.data.token;
+                localStorage.setItem('token', token)
+                console.log(token);
+
+                navigate('/');
             }
         } catch (error: any) {
             console.log(error);
@@ -66,15 +83,15 @@ const RegisterForm: React.FC = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="username">Имя пользователя:</label>
-                    <input type="text" id="username" value={username} onChange={e => setUsername(e.target.value)} />
+                    <input type="text" id="username" value={nickname} onChange={e => setUsername(e.target.value)} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Пароль:</label>
                     <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Повтор пароля:</label>
-                    <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
+                    <label>Повтор пароля:</label>
+                    <input type="password" id="password_repeat" value={password_repeat} onChange={e => setPasswordRepeat(e.target.value)} />
                 </div>
                 <div>
 
