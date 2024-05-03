@@ -1,0 +1,67 @@
+.ProfilePage {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.LeftPane,
+.MiddlePane,
+.RightPane {
+  display: flex;
+  flex: 1;
+}
+
+.LeftPane {
+  padding: 20px;
+  background-color: #b1b1b1;
+}
+
+.Upload-form {
+  background-color: #818181;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.Upload-form input,
+.Upload-form textarea,
+.Upload-form button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: calc(100% - 20px);
+  border: none;
+  border-radius: 4px;
+}
+
+.Upload-form input[type='file'] {
+  margin-bottom: 20px;
+}
+
+.Upload-button {
+  background-color: #1b74d4;
+  color: white;
+  cursor: pointer;
+}
+
+.Upload-button:disabled {
+  background-color: #ccc;
+  color: #666;
+}
+
+.Upload-button:not(:disabled):hover {
+  background-color: #0056b3;
+}
+
+.Upload-progress {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.Upload-success {
+  color: green;
+}

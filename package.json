@@ -16,7 +16,8 @@
     "eslint-plugin-import": "^2.22.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^5.0.1",
+    "resumable-ts": "^1.1.0",
     "typescript": "^5.4.5",
     "web-vitals": "^2.1.4"
   },
@@ -27,10 +28,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": []
   },
   "browserslist": {
     "production": [

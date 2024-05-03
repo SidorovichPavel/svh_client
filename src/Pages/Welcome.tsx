@@ -14,7 +14,6 @@ const Welcome: React.FC<ILoginProps> = ({ welcomeForm }) => {
                 <h1>Добро пожаловать!</h1>
                 {welcomeForm}
             </div>
-            
         </div>
     )
 }

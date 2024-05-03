@@ -6,7 +6,7 @@ import Header from './Components/Header/Header';
 const Watch: React.FC = () => {
   return (
     <div className="Watch">
-      <Header/>
+      <Header page_title='Просмотр'/>
       <main className="Main-content">
         <div className="Video-player">
           <h2>Видеоплеер</h2>

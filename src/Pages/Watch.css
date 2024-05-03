@@ -1,5 +1,6 @@
 .Watch {
     text-align: center;
+    background-color: #b1b1b1;
 }
 
 .Watch-header {
@@ -20,13 +21,11 @@
     width: auto;
     height: 480px;
     justify-content: center;
-    /* 70% ширины */
 }
 
 .Comments-list,
 .Users-list {
     flex: 20%;
-    /* 15% ширины */
 }
 
 .Video-player,
