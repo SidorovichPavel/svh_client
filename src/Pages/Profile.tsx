@@ -33,7 +33,7 @@ const ProfilePage: React.FC = () => {
 
     const isVideoFile = (file: File): boolean => {
         console.log(file.type);
-        const res = acceptedTypes.includes(file.type) && (file.name.match(/\.(avi|mp4|mkv|wmv|mov)$/i) !== null);
+        const res = acceptedTypes.includes(file.type) && (file.name.match(/\.(avi|mp4|mkv|wmv|mov|webm)$/i) !== null);
         console.log("Debug : isVideoFile output : ", res);
         return res;
     };
