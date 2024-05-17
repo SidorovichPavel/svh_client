@@ -29,7 +29,7 @@ const ProfilePage: React.FC = () => {
         setVideoTags(e.target.value);
     };
 
-    const acceptedTypes = ['video/mp4', 'video/mpeg', 'video/quicktime', 'video/x-msvideo', 'video/x-ms-wmv', 'video/x-matroska', 'video/webm',];
+    const acceptedTypes = ['video/mp4', 'video/mpeg', 'video/quicktime', 'video/x-msvideo', 'video/x-ms-wmv', 'video/x-matroska', 'video/webm'];
 
     const isVideoFile = (file: File): boolean => {
         console.log(file.type);
