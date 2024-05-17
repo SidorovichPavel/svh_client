@@ -2,15 +2,15 @@ import React from 'react';
 import './Watch.css';
 
 import Header from './Components/Header/Header';
+import VideoPlayer from './Components/Player/Player';
 
 const Watch: React.FC = () => {
   return (
     <div className="Watch">
-      <Header page_title='Просмотр'/>
+      <Header page_title='Просмотр' />
       <main className="Main-content">
         <div className="Video-player">
-          <h2>Видеоплеер</h2>
-          {/* Здесь можете разместить ваш видеоплеер */}
+          {<VideoPlayer url='https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd'/>}
         </div>
         <div className="Comments-list">
           <h2>Список комментариев</h2>
