@@ -9,6 +9,16 @@ import { title } from "process";
 const mpaaRatings = ["G", "PG", "PG-13", "R", "NC-17"];
 const acceptedTypes = ['video/mp4', 'video/mpeg', 'video/quicktime', 'video/x-msvideo', 'video/x-ms-wmv', 'video/x-matroska', 'video/webm'];
 
+function getFileNameWithoutExtension(filename: string): string {
+  const lastDotIndex = filename.lastIndexOf('.');
+
+  if (lastDotIndex === -1) {
+    return filename;
+  }
+
+  return filename.substring(0, lastDotIndex);
+}
+
 const UploadForm: React.FC = () => {
 
   const [videoTitle, setVideoTitle] = useState('');
@@ -50,9 +60,12 @@ const UploadForm: React.FC = () => {
     if (!e.target.files)
       return;
     const file = e.target.files[0];
+    if (!file)
+      return;
 
-    if (validateInput(file.name))
-      setVideoTitle(file.name);
+    const title = getFileNameWithoutExtension(file.name);
+    if (validateInput(title))
+      setVideoTitle(title);
     else
       setVideoTitle("Видео");
 
@@ -137,7 +150,7 @@ const UploadForm: React.FC = () => {
   return <div className="Upload-form">
     <h2>Загрузить видео</h2>
     <input type="file"
-      className='btn'
+      className='btn Upload-button'
       accept={acceptedTypes.join(',')}
       onChange={handleFileChange} />
     <input type="text"
@@ -151,9 +164,7 @@ const UploadForm: React.FC = () => {
       <label htmlFor="mpaa-rating">Возрастной рейтинг: </label>
       <select id="mpaa-rating" value={selectedRating} onChange={handleChange}>
         {mpaaRatings.map(rating => (
-          <option key={rating} value={rating}>
-            {rating}
-          </option>
+          <option key={rating} value={rating}>{rating}</option>
         ))}
       </select>
     </div>
@@ -167,7 +178,7 @@ const UploadForm: React.FC = () => {
       {uploading ? "Загрузка..." : "Загрузить"}
     </button>
     {uploadProgress > 0 && uploadProgress < 100 && <progress className="Upload-progress" value={uploadProgress} max={100} />}
-    {uploadProgress === 100 && <p className="Upload-success">Видео успешно загружено!</p>}
+    {uploadProgress === 100 && <p className="Upload-success">Видео успешно загружено для обработки</p>}
     {uploadErrorMsg != null && <p className="Upload-error">{uploadErrorMsg}</p>}
   </div>
 }

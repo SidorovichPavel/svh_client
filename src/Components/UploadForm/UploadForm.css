@@ -11,6 +11,8 @@
   display: block;
   margin-bottom: 10px;
   padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
   width: calc(100% - 20px);
   border: none;
   border-radius: 4px;
@@ -31,7 +33,7 @@
 
 .Upload-button {
   background-color: #007bff;
-  color: white;
+  color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
@@ -51,4 +53,15 @@
 
 .Upload-success {
   color: green;
+}
+
+.mpaa-select-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.mpaa-select-container label,
+.mpaa-select-container select {
+  padding: 5px;
+  margin: auto;
 }
