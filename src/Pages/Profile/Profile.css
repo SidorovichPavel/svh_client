@@ -1,0 +1,22 @@
+.ProfilePage {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.LeftPane,
+.MiddlePane,
+.RightPane {
+  display: flex;
+  flex: 1;
+}
+
+.LeftPane {
+  padding: 20px;
+  background-color: #b1b1b1;
+}

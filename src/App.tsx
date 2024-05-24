@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Watch from './Pages/Watch';
-import Welcome from './Pages/Welcome';
-import Profile from './Pages/Profile';
+import Watch from './Pages/Watch/Watch';
+import Welcome from './Pages/Welcome/Welcome';
+import Profile from './Pages/Profile/Profile';
 
-import RegisterForm from './Pages/Components/RegisterForm/RegisterForm';
-import LoginForm from './Pages/Components/LoginForm/LoginForm'
+import RegisterForm from './Components/RegisterForm/RegisterForm';
+import LoginForm from './Components/LoginForm/LoginForm'
 
 const App: React.FC = () => {
 

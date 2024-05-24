@@ -3,12 +3,6 @@
     background-color: #b1b1b1;
 }
 
-.Watch-header {
-    background-color: #282c34;
-    padding: 20px;
-    color: white;
-}
-
 .Main-content {
     display: flex;
     justify-content: space-around;
@@ -19,18 +13,20 @@
 .Video-player {
     flex: 60%;
     width: auto;
-    height: 480px;
+    max-height: 80%;
     justify-content: center;
 }
 
 .Comments-list,
-.Users-list {
+.Video-list {
     flex: 20%;
+    min-height: 494px;
+    height: 100%;
 }
 
 .Video-player,
 .Comments-list,
-.Users-list {
+.Video-list {
     padding: 20px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -39,6 +35,6 @@
 
 .Video-player h2,
 .Comments-list h2,
-.Users-list h2 {
+.Video-list h2 {
     margin: auto,
 }
