@@ -47,11 +47,11 @@ const RegisterForm: React.FC<IRegister> = ({ }) => {
         });
 
         try {
-            const response = await axios.post<{ token: string }>('http://localhost:8080/register', json);
-
+            const response = await axios.post<{ token: string }>('http://localhost:8080/api/signup', json);
+            
             if (response.status === 200) {
                 setError('');
-
+                
                 const token = response.data.token;
                 localStorage.setItem('token', token)
                 console.log(token);
